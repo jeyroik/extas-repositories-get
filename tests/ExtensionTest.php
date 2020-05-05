@@ -41,7 +41,7 @@ class ExtensionTest extends TestCase
             Extension::FIELD__SUBJECT => '*',
             Extension::FIELD__METHODS => ['testRepository']
         ]));
-        SystemContainer::addItem('testRepository', TestRepository::class);
+        SystemContainer::addItem('testRepository', SomeRepository::class);
         $extendable = new class extends Item {
             protected function getSubjectForExtension(): string
             {
@@ -50,6 +50,6 @@ class ExtensionTest extends TestCase
         };
 
         $repo = $extendable->testRepository();
-        $this->assertTrue($repo instanceof TestRepository);
+        $this->assertTrue($repo instanceof SomeRepository);
     }
 }
