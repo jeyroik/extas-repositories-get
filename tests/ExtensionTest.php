@@ -38,7 +38,7 @@ class ExtensionTest extends TestCase
         $this->extRepo->create(new Extension([
             Extension::FIELD__CLASS => ExtensionRepositoryGet::class,
             Extension::FIELD__INTERFACE => IExtensionRepositoryGet::class,
-            Extension::SUBJECT => '*',
+            Extension::FIELD__SUBJECT => '*',
             Extension::FIELD__METHODS => ['testRepository']
         ]));
         SystemContainer::addItem('testRepository', TestRepository::class);
