@@ -54,7 +54,7 @@ class RepositoryGetOptionTest extends TestCase
                 PackageClass::FIELD__INTERFACE_NAME => 'test\\interfaces\\IIsOk',
                 PackageClass::FIELD__CLASS_NAME => 'test\\components\\IsOk'
             ],
-            RepositoryGetOption::FIELD__PLUGIN => new Extension(),
+            RepositoryGetOption::FIELD__PLUGIN => null,
             RepositoryGetOption::FIELD__OUTPUT => new NullOutput()
         ]);
 
