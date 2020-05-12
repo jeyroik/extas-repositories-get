@@ -1,0 +1,15 @@
+{
+  "name": "extas/repositories-get",
+  "installer_options": [
+    {
+      "name": "r-get",
+      "shortcut": "rg",
+      "mode": 4,
+      "title": "Repositories get",
+      "description": "Set true to generate repos aliasing by extension automatically",
+      "default": true,
+      "stage": "item",
+      "class": "extas\\components\\options\\RepositoryGetOption"
+    }
+  ]
+}
