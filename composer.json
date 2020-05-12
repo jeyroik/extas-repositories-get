@@ -2,7 +2,7 @@
   "name": "jeyroik/extas-repositories-get",
   "description": "Get extas repositories package",
   "require": {
-    "jeyroik/extas-foundation": "5.*"
+    "jeyroik/extas-installer": "2.*"
   },
   "require-dev": {
     "phpunit/phpunit": "^9",
