@@ -1,6 +1,7 @@
 <?php
 namespace tests;
 
+use extas\components\extensions\Extension;
 use extas\components\extensions\ExtensionRepository;
 use extas\components\extensions\ExtensionRepositoryGet;
 use extas\components\extensions\TSnuffExtensions;
@@ -44,6 +45,26 @@ class RepositoryGetOptionTest extends TestCase
     {
         $this->deleteSnuffExtensions();
         $this->packageClassesRepo->delete([IPackageClass::FIELD__CLASS_NAME => 'test\\components\\IsOk']);
+    }
+
+    public function testPassNotPackagesClassesPlugins()
+    {
+        $option = new RepositoryGetOption([
+            RepositoryGetOption::FIELD__ITEM => [
+                PackageClass::FIELD__INTERFACE_NAME => 'test\\interfaces\\IIsOk',
+                PackageClass::FIELD__CLASS_NAME => 'test\\components\\IsOk'
+            ],
+            RepositoryGetOption::FIELD__PLUGIN => new Extension(),
+            RepositoryGetOption::FIELD__OUTPUT => new NullOutput()
+        ]);
+
+        $option();
+
+        /**
+         * @var IPackageClass $alias
+         */
+        $alias = $this->packageClassesRepo->one([IPackageClass::FIELD__INTERFACE_NAME => 'isOk']);
+        $this->assertEmpty($alias);
     }
 
     public function testOptionCreateExt()
