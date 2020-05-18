@@ -65,7 +65,7 @@ class RepositoryGetOption extends InstallerStageItem
         $ext->setMethods($methods);
         $extRepo->update($ext);
         $this->getOutput()->writeln([
-            '[ UPDATE ][ Extension get ] New methods added"' . implode('", "', [$interface, $alias]) . '"'
+            '[ UPDATE ][ Extension get ] New methods added: "' . implode('", "', [$interface, $alias]) . '"'
         ]);
     }
 
