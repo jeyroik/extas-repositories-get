@@ -61,12 +61,14 @@ class RepositoryGetOption extends InstallerStageItem
     {
         $methods = $ext->getMethods();
         $newMethods = array_diff([$interface, $alias], $methods);
-        $methods = array_merge($methods, $newMethods);
-        $ext->setMethods($methods);
-        $extRepo->update($ext);
-        $this->getOutput()->writeln([
-            '[ UPDATE ][ Extension get ] New methods added: "' . implode('", "', [$interface, $alias]) . '"'
-        ]);
+        if (!empty($newMethods)) {
+            $methods = array_merge($methods, $newMethods);
+            $ext->setMethods($methods);
+            $extRepo->update($ext);
+            $this->getOutput()->writeln([
+                '[ UPDATE ][ Extension get ] New methods added: "' . implode('", "', [$interface, $alias]) . '"'
+            ]);
+        }
     }
 
     /**
