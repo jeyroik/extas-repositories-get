@@ -6,6 +6,7 @@
     "vlucas/phpdotenv": "^3.4",
     "jeyroik/extas-repositories-mongo": "1.*",
     "jeyroik/extas-snuffbox": "0.*",
+    "jeyroik/extas-foundation": "5.*",
     "phpstan/phpstan": "0.*"
   },
   "autoload": {
