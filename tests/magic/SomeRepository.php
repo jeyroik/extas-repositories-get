@@ -1,5 +1,5 @@
 <?php
-namespace tests;
+namespace tests\magic;
 
 use extas\components\repositories\Repository;
 
