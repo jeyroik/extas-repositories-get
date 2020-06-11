@@ -1,14 +1,16 @@
 <?php
-namespace tests;
+namespace tests\magic;
 
-use Dotenv\Dotenv;
+use extas\interfaces\extensions\IExtensionRepositoryGet;
+use extas\interfaces\repositories\IRepository;
+
 use extas\components\extensions\Extension;
 use extas\components\extensions\ExtensionRepository;
 use extas\components\extensions\ExtensionRepositoryGet;
 use extas\components\Item;
 use extas\components\repositories\TSnuffRepository;
-use extas\interfaces\extensions\IExtensionRepositoryGet;
-use extas\interfaces\repositories\IRepository;
+
+use Dotenv\Dotenv;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -21,14 +23,12 @@ class ExtensionTest extends TestCase
 {
     use TSnuffRepository;
 
-    protected IRepository $extRepo;
-
     protected function setUp(): void
     {
         parent::setUp();
         $env = Dotenv::create(getcwd() . '/tests/');
         $env->load();
-        $this->extRepo = new ExtensionRepository();
+
         $this->registerSnuffRepos([
             'extensionRepository' => ExtensionRepository::class,
             'testRepository' => SomeRepository::class
